@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SA University Portal - Login</title>
+    <link rel="stylesheet" href="stylesLogInPage.css" />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Background with Matric Theme -->
+    <div class="matric-background"></div>
+
+    <!-- Login Container -->
+    <div class="login-container">
+      <div class="logo">
+        <i class="fas fa-graduation-cap"></i>
+        <h1>SA University Portal</h1>
+      </div>
+
+      <form class="login-form">
+        <h2>Welcome Back</h2>
+        <p>Enter your details to access your account</p>
+
+        <div class="form-group">
+          <label for="email"><i class="fas fa-envelope"></i> Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="student@example.com"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password"><i class="fas fa-lock"></i> Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+
+        <button type="submit" class="login-btn">
+          <i class="fas fa-sign-in-alt"></i> Log In
+        </button>
+
+        <div class="links">
+          <a href="#">Forgot password?</a>
+          <a href="#">Create account</a>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      document
+        .querySelector(".login-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          // Simple validation (replace with actual auth logic)
+          if (email && password) {
+            // alert(`Welcome! Redirecting to your dashboard...`);
+            window.location.href = "Home.html"; // Redirect after login
+          } else {
+            alert("Please fill in all fields.");
+          }
+        });
+    </script>
+  </body>
+</html>

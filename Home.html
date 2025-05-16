@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SA University Portal - Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation Bar with Logout -->
+    <nav class="navbar">
+      <div class="nav-brand">
+        <i class="fas fa-graduation-cap"></i>
+        <span>SA University Portal</span>
+      </div>
+      <button id="logoutBtn" class="logout-btn">
+        <i class="fas fa-sign-out-alt"></i> Log Out
+      </button>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+      <h1>Welcome, <span id="username">Student</span>!</h1>
+      <p>Use the tool below to check your course eligibility.</p>
+
+      <div class="container">
+        <header class="hero">
+          <h1><span class="gradient-text">Find Your Dream Course</span></h1>
+          <p>
+            Enter your Matric marks to discover universities that match your
+            results.
+          </p>
+        </header>
+        <!-- Form with Floating Labels -->
+        <form id="marksForm" class="floating-form">
+          <div class="form-group">
+            <input type="number" id="math" min="0" max="100" required />
+            <label for="math">Mathematics (%)</label>
+          </div>
+          <div class="form-group">
+            <input type="number" id="english" min="0" max="100" required />
+            <label for="english">English (%)</label>
+          </div>
+          <div class="form-group">
+            <input type="number" id="physics" min="0" max="100" required />
+            <label for="math">Physics</label>
+          </div>
+          <div class="form-group">
+            <input type="number" id="computers" min="0" max="100" required />
+            <label for="math">Computer</label>
+          </div>
+          <div class="form-group">
+            <input type="number" id="accounting" min="0" max="100" required />
+            <label for="math">Accounting</label>
+          </div>
+          <!-- Add more subjects here -->
+          <button type="submit" id="calculateBtn" class="glow-button">
+            <i class="fas fa-search"></i> Check Eligibility
+          </button>
+        </form>
+
+        <!-- Results Card (Initially Hidden) -->
+        <div id="results" class="results-card hidden">
+          <h2><i class="fas fa-graduation-cap"></i> Eligible Courses</h2>
+          <div id="coursesList" class="courses-grid"></div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer>
+        <p>
+          Made with <i class="fas fa-heart pulse"></i> for South African
+          students
+        </p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

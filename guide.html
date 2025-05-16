@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University Course Finder</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Base Styles */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+      }
+
+      /* Form Styles */
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      button {
+        background: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background: #2980b9;
+      }
+
+      /* Results Styles */
+      .hidden {
+        display: none;
+      }
+
+      .course-card {
+        background: #f9f9f9;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border-left: 4px solid #3498db;
+      }
+
+      .course-card h3 {
+        margin-top: 0;
+        color: #2c3e50;
+      }
+
+      .aps-display {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 10px 0;
+        font-size: 1.1em;
+      }
+
+      .aps-label {
+        font-weight: bold;
+        color: #555;
+      }
+
+      .aps-score {
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+
+      .aps-score.pass {
+        background-color: #d4edda;
+        color: #155724;
+      }
+
+      .aps-score.fail {
+        background-color: #f8d7da;
+        color: #721c24;
+      }
+
+      .aps-required {
+        font-weight: bold;
+        color: #004085;
+      }
+
+      .apply-btn {
+        display: inline-block;
+        background: #2ecc71;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 4px;
+        text-decoration: none;
+        margin-top: 10px;
+      }
+
+      .apply-btn:hover {
+        background: #27ae60;
+      }
+
+      .course-description {
+        color: #666;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>University Course Finder</h1>
+
+      <form id="marksForm">
+        <div class="form-group">
+          <label for="math">Mathematics:</label>
+          <input type="number" id="math" min="0" max="100" required />
+        </div>
+
+        <div class="form-group">
+          <label for="english">English:</label>
+          <input type="number" id="english" min="0" max="100" required />
+        </div>
+
+        <div class="form-group">
+          <label for="physics">Physics:</label>
+          <input type="number" id="physics" min="0" max="100" />
+        </div>
+
+        <div class="form-group">
+          <label for="computers">Computer Science:</label>
+          <input type="number" id="computers" min="0" max="100" />
+        </div>
+
+        <div class="form-group">
+          <label for="accounting">Accounting:</label>
+          <input type="number" id="accounting" min="0" max="100" />
+        </div>
+
+        <button type="submit">Check Eligibility</button>
+      </form>
+
+      <div id="results" class="hidden">
+        <h2>Eligible Courses</h2>
+        <div id="coursesList"></div>
+      </div>
+    </div>
+
+    <script>
+      // Your JavaScript code with the displayResults function
+      function displayResults(courses, userAPS) {
+        const resultsDiv = document.getElementById("results");
+        const coursesList = document.getElementById("coursesList");
+        coursesList.innerHTML = "";
+
+        if (courses.length === 0) {
+          coursesList.innerHTML =
+            '<div class="course-card">No courses found. Try higher marks!</div>';
+        } else {
+          courses.forEach((course) => {
+            const card = document.createElement("div");
+            card.className = "course-card";
+
+            // Generate subject requirements string
+            const subjectRequirements = [];
+            for (const [subject, minMark] of Object.entries(
+              course.requiredSubjects
+            )) {
+              if (minMark > 0) {
+                subjectRequirements.push(`${subject} ≥ ${minMark}%`);
+              }
+            }
+
+            card.innerHTML = `
+                        <h3>${course.name}</h3>
+                        <div class="aps-display">
+                            <span class="aps-label">Your APS:</span>
+                            <span class="aps-score ${
+                              userAPS >= course.requiredAPS ? "pass" : "fail"
+                            }">
+                                ${userAPS}
+                            </span>
+                            <span class="aps-label">Required APS:</span>
+                            <span class="aps-required">${
+                              course.requiredAPS
+                            }</span>
+                        </div>
+                        <p>${subjectRequirements.join(" | ")}</p>
+                        <p><a href="${
+                          course.applyLink
+                        }" target="_blank" class="apply-btn">
+                            Apply Now <i class="fas fa-external-link-alt"></i>
+                        </a></p>
+                        <p class="course-description">${course.description}</p>
+                    `;
+            coursesList.appendChild(card);
+          });
+        }
+        resultsDiv.classList.remove("hidden");
+      }
+
+      // Example usage with your form submission
+      document
+        .getElementById("marksForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get input values
+          const math = parseInt(document.getElementById("math").value) || 0;
+          const english =
+            parseInt(document.getElementById("english").value) || 0;
+          const physics =
+            parseInt(document.getElementById("physics").value) || 0;
+          const computers =
+            parseInt(document.getElementById("computers").value) || 0;
+          const accounting =
+            parseInt(document.getElementById("accounting").value) || 0;
+
+          // Calculate APS (simplified example)
+          const aps = calculateAPS(
+            math,
+            english,
+            physics,
+            computers,
+            accounting
+          );
+
+          // Check eligibility (using your existing courses array)
+          const eligibleCourses = checkEligibility(
+            aps,
+            math,
+            english,
+            physics,
+            computers,
+            accounting
+          );
+
+          // Display results with APS
+          displayResults(eligibleCourses, aps);
+        });
+
+      function calculateAPS(math, english, physics, computers, accounting) {
+        const mathPoints = Math.min(Math.floor(math / 10), 7);
+        const englishPoints = Math.min(Math.floor(english / 10), 7);
+        const physicsPoints = Math.min(Math.floor(physics / 10), 7);
+        const computersPoints = Math.min(Math.floor(computers / 10), 7);
+        const accountingPoints = Math.min(Math.floor(accounting / 10), 7);
+
+        return (
+          mathPoints +
+          englishPoints +
+          physicsPoints +
+          computersPoints +
+          accountingPoints
+        );
+      }
+
+      function checkEligibility(
+        aps,
+        math,
+        english,
+        physics,
+        computers,
+        accounting
+      ) {
+        const courses = [
+          {
+            name: "BSc Computer Science (UCT)",
+            requiredAPS: 28,
+            requiredSubjects: { math: 60, english: 50, computers: 70 },
+            description: "Focus on software development and AI.",
+            applyLink: "https://www.uct.ac.za/apply",
+          },
+          {
+            name: "BA Law (Wits)",
+            requiredAPS: 24,
+            requiredSubjects: { english: 70 },
+            description: "Undergraduate law degree program.",
+            applyLink: "https://www.wits.ac.za/applications/",
+          },
+          {
+            name: "BSc Physics (Stellenbosch)",
+            requiredAPS: 32,
+            requiredSubjects: { math: 70, english: 50, physics: 65 },
+            description: "Theoretical and applied physics studies.",
+            applyLink: "https://www.sun.ac.za/apply",
+          },
+        ];
+
+        return courses.filter((course) => {
+          const meetsSubjects = Object.entries(course.requiredSubjects).every(
+            ([subject, minMark]) => {
+              const studentMark = {
+                math,
+                english,
+                physics,
+                computers,
+                accounting,
+              }[subject];
+              return studentMark >= minMark;
+            }
+          );
+
+          return aps >= course.requiredAPS && meetsSubjects;
+        });
+      }
+    </script>
+  </body>
+</html>

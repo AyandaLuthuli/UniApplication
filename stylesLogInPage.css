@@ -1,0 +1,166 @@
+/* ===== Base Styles ===== */
+:root {
+  --primary: #2c3e50; /* Dark blue (Matric theme) */
+  --secondary: #e74c3c; /* Red accent */
+  --light: #ecf0f1; /* Light gray */
+  --dark: #2c3e50; /* Dark text */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  color: var(--dark);
+}
+
+/* ===== Matric Background ===== */
+.matric-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("photo1.avif");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+/* ===== Login Container ===== */
+.login-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  padding: 2rem;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.logo {
+  margin-bottom: 1.5rem;
+}
+
+.logo i {
+  font-size: 3rem;
+  color: var(--secondary);
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  color: var(--primary);
+}
+
+/* ===== Login Form ===== */
+.login-form h2 {
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.login-form p {
+  margin-bottom: 1.5rem;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+.form-group input:focus {
+  border-color: var(--secondary);
+  outline: none;
+}
+
+/* ===== Login Button ===== */
+.login-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 1rem;
+}
+
+.login-btn:hover {
+  background: #c0392b;
+}
+
+/* ===== Links ===== */
+.links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.links a {
+  color: var(--secondary);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.links a:hover {
+  color: #c0392b;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 500px) {
+  .login-container {
+    padding: 1.5rem;
+  }
+
+  .logo i {
+    font-size: 2.5rem;
+  }
+
+  .logo h1 {
+    font-size: 1.3rem;
+  }
+}
