@@ -331,6 +331,7 @@ function checkEligibility(aps, math, english, physics, computers, accounting) {
     },
   ];
 
+  console.log(`Total courses: ${courses.length}`);
   return courses.filter((course) => {
     const req = course.requiredSubjects;
     return (
