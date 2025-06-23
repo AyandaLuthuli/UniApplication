@@ -329,6 +329,28 @@ function checkEligibility(aps, math, english, physics, computers, accounting) {
       description: "Portfolio management, financial derivatives, and trading.",
       applyLink: "https://www.uct.ac.za",
     },
+    {
+      name: "BSc Marine Biology (UCT)",
+      requiredAPS: 36,
+      requiredSubjects: { math: 60, english: 50, lifeScience: 65 },
+      description: "Marine ecosystems, conservation, and oceanography.",
+      applyLink: "https://www.uct.ac.za",
+    },
+    {
+      name: "BSc Geology (Wits)",
+      requiredAPS: 36,
+      requiredSubjects: { math: 60, english: 50, physicalScience: 65 },
+      description: "Earth sciences, mineralogy, and geophysics.",
+      applyLink: "https://www.wits.ac.za",
+    },
+    {
+      name: "BCom Accounting (UJ)",
+      requiredAPS: 34,
+      requiredSubjects: { math: 60, english: 50 },
+      description: "Financial reporting, auditing, and taxation.",
+      applyLink: "https://www.uj.ac.za",
+    },
+    s,
   ];
 
   console.log(`Total courses: ${courses.length}`);
