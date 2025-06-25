@@ -350,7 +350,50 @@ function checkEligibility(aps, math, english, physics, computers, accounting) {
       description: "Financial reporting, auditing, and taxation.",
       applyLink: "https://www.uj.ac.za",
     },
-    s,
+    {
+      name: "BSc Environmental Science (UKZN)",
+      requiredAPS: 34,
+      requiredSubjects: { math: 50, english: 50, lifeScience: 60 },
+      description: "Ecology, conservation, and environmental policy.",
+      applyLink: "https://www.ukzn.ac.za",
+    },
+    {
+      name: "BCom Marketing Management (CPUT)",
+      requiredAPS: 32,
+      requiredSubjects: { english: 60, math: 50 },
+      description: "Consumer behavior, digital marketing, and brand strategy.",
+      applyLink: "https://www.cput.ac.za",
+    },
+    {
+      name: "BSc Information Systems (UJ)",
+      requiredAPS: 30,
+      requiredSubjects: { math: 60, english: 50, computers: 55 },
+      description:
+        "Database management, software engineering, and IT strategy.",
+      applyLink: "https://www.uj.ac.za",
+    },
+    {
+      name: "BSc Biotechnology (UCT)",
+      requiredAPS: 36,
+      requiredSubjects: { math: 60, english: 50, lifeScience: 65 },
+      description: "Genetic engineering, microbiology, and bioinformatics.",
+      applyLink: "https://www.uct.ac.za",
+    },
+    {
+      name: "BCom Human Resource Management (NWU)",
+      requiredAPS: 30,
+      requiredSubjects: { english: 60, math: 50 },
+      description: "Talent management, organizational behavior, and labor law.",
+      applyLink: "https://www.nwu.ac.za",
+    },
+    {
+      name: "BSc Physics (Wits)",
+      requiredAPS: 36,
+      requiredSubjects: { math: 70, english: 50, physicalScience: 70 },
+      description:
+        "Classical mechanics, electromagnetism, and quantum physics.",
+      applyLink: "https://www.wits.ac.za",
+    },
   ];
 
   console.log(`Total courses: ${courses.length}`);
