@@ -394,6 +394,13 @@ function checkEligibility(aps, math, english, physics, computers, accounting) {
         "Classical mechanics, electromagnetism, and quantum physics.",
       applyLink: "https://www.wits.ac.za",
     },
+    {
+      name: "BCom Supply Chain Management (UJ)",
+      requiredAPS: 32,
+      requiredSubjects: { math: 60, english: 50 },
+      description: "Logistics, procurement, and operations management.",
+      applyLink: "https://www.uj.ac.za",
+    },
   ];
 
   console.log(`Total courses: ${courses.length}`);
