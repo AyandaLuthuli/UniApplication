@@ -401,6 +401,13 @@ function checkEligibility(aps, math, english, physics, computers, accounting) {
       description: "Logistics, procurement, and operations management.",
       applyLink: "https://www.uj.ac.za",
     },
+    {
+      name: "BSc Mathematics (UCT)",
+      requiredAPS: 38,
+      requiredSubjects: { math: 75, english: 50 },
+      description: "Pure mathematics, applied mathematics, and statistics.",
+      applyLink: "https://www.uct.ac.za",
+    },
   ];
 
   console.log(`Total courses: ${courses.length}`);
