@@ -478,7 +478,7 @@ document.getElementById("logoutBtn").addEventListener("click", function () {
   localStorage.removeItem("userLoggedIn");
 
   // Redirect to login page
-  window.location.href = "LogInPage.html"; // Replace with your login page
+  window.location.href = "index.html"; // Replace with your login page
 });
 
 //   // Optional: Check login state on page load
