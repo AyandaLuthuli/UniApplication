@@ -408,6 +408,13 @@ function checkEligibility(aps, math, english, physics, computers, accounting) {
       description: "Pure mathematics, applied mathematics, and statistics.",
       applyLink: "https://www.uct.ac.za",
     },
+     {
+      name: "BSc Mathematics (WSU)",
+      requiredAPS: 38,
+      requiredSubjects: { math: 75, english: 50 },
+      description: "Pure mathematics, applied mathematics, and statistics.",
+      applyLink: "https://www.wsu.ac.za",
+    },
   ];
 
   console.log(`Total courses: ${courses.length}`);
