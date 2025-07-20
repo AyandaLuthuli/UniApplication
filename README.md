@@ -4,7 +4,7 @@ A web application that helps South African students find university courses base
 📌 Overview
 This project is a University Course Eligibility Checker designed for South African high school students. It calculates a student's Admission Point Score (APS) based on their matric marks and matches them with eligible university courses.
 
-🔗 Live Demo (Coming soon)
+🔗 Live Demo : https://ayandaluthuli.github.io/UniApplication/
 
  Features
 ✅ APS Calculator – Automatically computes your Admission Point Score
