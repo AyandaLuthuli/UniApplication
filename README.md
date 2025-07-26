@@ -2,7 +2,7 @@ SA University Course Finder
 A web application that helps South African students find university courses based on their matric results.
 
 📌 Overview
-This project is a University Course Eligibility Checker designed for South African high school students. It calculates a student's Admission Point Score (APS) based on their matric marks and matches them with eligible university courses.
+This project is a University Course Eligibility Checker designed for South African high school students. It calculates a student's Admission Point Score (APS) based on their matric marks and matches them with eligible university courses around south african unis.
 
 🔗 Live Demo : https://ayandaluthuli.github.io/UniApplication/
 
